@@ -5,6 +5,13 @@ import re
 page = urllib.urlopen('file:///home/maxweldsouza/Projects/scantuary/gather/phantom240.html')
 page = page.read()
 
-soup = BeautifulSoup(page)
+def nzxt_cabinets(page):
+    soup = BeautifulSoup(page)
+    return soup.select('table[class~=product-spec-table]')
 
-print soup.find_all( 'table', class_='product-spec-table')
+def cm_cabinets(page):
+    soup = BeautifulSoup(page)
+    return soup.select('.htmlEditorArea > table')
+
+print nzxt_cabinets(page)
+
